@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Homepage from './pages/Homepage'

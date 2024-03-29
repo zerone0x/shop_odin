@@ -10,7 +10,7 @@ function Product() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [products, setProducts] = useLocalStorageState([], 'products');
-    const {dispatch, cart, payment} = useOutletContext();
+    const {payment} = useOutletContext();
     const handleclick =(id)=>{
         navigate(`/app/product/${id}`);
     }
@@ -51,7 +51,7 @@ function Product() {
                 <div>
 
 
-            <AddCart  cart={cart} dispatch={dispatch} title={product.title} price={product.price} id={product.id} image={product.image} />
+            <AddCart  title={product.title} price={product.price} id={product.id} image={product.image} />
         </div>
             </li>
         ))}

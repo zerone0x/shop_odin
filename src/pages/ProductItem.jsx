@@ -3,13 +3,14 @@ import { BrowserRouter, Routes, Route, Navigate, useParams,useOutletContext } fr
 import BackButton from '../components/BackButton';
 import Button from '../components/Button';
 import AddCart from '../components/AddCart';
+import { useSelector, useDispatch } from 'react-redux';
 
 function ProductItem() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [product, setProduct] = useState([]);
     const { id } = useParams();
-    const {dispatch, cart, payment} = useOutletContext();
+    const { payment} = useOutletContext();
 
    
     useEffect(() => {
@@ -40,7 +41,7 @@ function ProductItem() {
         <p>{ description}</p>
         <p>{ price}</p>
         <img width="100" src={ image} alt={ title} />
-        <AddCart  cart={cart} dispatch={dispatch} title={title} price={price} id={id} image={image} />
+        <AddCart title={title} price={price} id={id} image={image} />
         <BackButton />
     </main>
   );

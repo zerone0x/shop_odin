@@ -17,9 +17,6 @@ function AppNav() {
             <li>
                 <NavLink to="/app">App</NavLink>
             </li>
-            <li>
-                <p>Cart: </p>
-            </li>
         </ul>
     </nav>
   );

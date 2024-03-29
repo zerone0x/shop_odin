@@ -2,14 +2,19 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useOutletContext } from 'react-router-dom';
 import AppNav from '../components/AppNav';
 import Button from '../components/Button';
+import { useSelector, useDispatch } from 'react-redux';
+import { remove, set, setAmount } from '../features/cartSlice';
 
 function Cart() {
-    const {dispatch, cart, payment} = useOutletContext();
+    const cart = useSelector(state => state.cart.value)
+    const dispatch = useDispatch();
+    const { payment} = useOutletContext();
     function removeItem(id){
-        dispatch({type: 'remove', id: id})
+        dispatch(remove(id))
     }
     function handleSetAmount(quantity, id){
-        dispatch({type: 'setAmount', quantity: Number(quantity), id: id})
+        const cartQuantity = Number(quantity);
+        dispatch(setAmount({id, cartQuantity}))
     }
   return (
     <main>
@@ -35,7 +40,7 @@ function Cart() {
             </thead>
 
             </table>
-            <Button onClick={()=>dispatch({type: 'set', cart: []})}>Clear Cart</Button>
+            <Button onClick={()=>dispatch(set([]))}>Clear Cart</Button>
             <p>Total: {payment.toFixed(2)}</p>
             <Button>Checkout</Button></>}
             
