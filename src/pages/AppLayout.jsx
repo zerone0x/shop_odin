@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom
 import Product from './Product';
 import Cart from './Cart';
 import AppNav from '../components/AppNav';
-
+import { configureStore } from '@reduxjs/toolkit';
 
 
 function cartReducer(state, action){
