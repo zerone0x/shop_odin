@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Button from './Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { add, set } from '../features/cartSlice';
+
+import { add, set, selectCart } from '../features/cartSlice';
 
 function  AddCart({ title, price, id, image}) {
-    const cart = useSelector(state => state.cart.value)
+    const cart = useSelector(selectCart);
     const dispatch = useDispatch();
     const [amount, setAmount] = useState(0);
     function handleAdd(){

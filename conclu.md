@@ -1,0 +1,4 @@
+# redux
+.value
+
+# redux thunk
