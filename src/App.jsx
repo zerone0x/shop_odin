@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from './pages/Homepage'
 import Product from './pages/Product'
 import AppNav from './components/AppNav'
@@ -8,6 +8,7 @@ import PageNotFound from './pages/PageNotFound';
 import Cart from './pages/Cart';
 import AppLayout from './pages/AppLayout'
 import ProductItem from './pages/ProductItem'
+
 
 function App() {
   console.log("App component")
