@@ -19,10 +19,11 @@ function AppLayout() {
 
   return (
     <div>
-        <AppNav />
-        <h1>Shop App main page</h1>
+      <header className='text-center text-cyan-400'>Shop</header>
+        {/* <AppNav /> */}
+        {/* <h1>Shop App main page</h1> */}
         <p>Total Cart: {total}</p>
-        <p>Welcome to the Shop App main page</p>
+        {/* <p>Welcome to the Shop App main page</p> */}
         <Outlet context={{payment}}/>
         
 

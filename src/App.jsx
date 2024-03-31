@@ -9,16 +9,45 @@ import Cart from './pages/Cart';
 import AppLayout from './pages/AppLayout'
 import ProductItem from './pages/ProductItem'
 
+const router= createBrowserRouter(
+  [{
+    element: <AppLayout />,
+    errorElement: <PageNotFound />,
+    children:[
+      {
+        path: '/',
+        element: <Navigate replace to="product"/>,
+        errorElement: <PageNotFound />,
+      },
+      {
+        path: 'product',
+        element: <Product/>,
+        errorElement: <PageNotFound />,
+      },
+      {
+        path: 'product/:id',
+        element: <ProductItem/>,
+        errorElement: <PageNotFound />,
+      },
+      {
+        path: 'cart',
+        element: <Cart/>,
+        errorElement: <PageNotFound />,
+      }
+    ]
+  }
+]
+)
 
 function App() {
-  console.log("App component")
-  return (<>
-    <BrowserRouter>
+  return (<div>
+  <RouterProvider router={router}/>
+    {/* <BrowserRouter>
     <Routes>
         <Route index element={<Homepage />}/>
         <Route path="product" element={<Product />}/>
         <Route path="product/:id" element={<ProductItem/>}/>
-        {/* <Route path="cart" element={<Cart />}/> */}
+        <Route path="cart" element={<Cart />}/>
         <Route 
           path="app"
           element={
@@ -32,9 +61,9 @@ function App() {
         <Route path="*" element={<PageNotFound/>}/>
 
     </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
     
-    </>
+    </div>
   )
 }
 
